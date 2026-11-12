@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/logsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:background="@color/card_bg"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/execution_logs_title"
+        app:titleTextColor="@color/text_title" />
+
+    <TextView
+        android:id="@+id/textLogsSummary"
+        style="@style/Widget.AutoTaskLite.SectionHint"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerLogs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/logs_content_bottom_padding" />
+
+        <TextView
+            android:id="@+id/textLogsEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:paddingBottom="@dimen/logs_content_bottom_padding"
+            android:text="@string/logs_empty"
+            android:textColor="@color/text_muted"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemTextColor="@color/bottom_nav_item"
+        app:itemIconTint="@color/bottom_nav_item"
+        android:background="@color/card_bg" />
+</LinearLayout>

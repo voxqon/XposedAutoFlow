@@ -1,0 +1,6 @@
+simulation: webdav-backup
+routing: path
+mocks:
+  - name: webdav
+    routeKey: webdav
+    path: postman/mocks/webdav/config.yaml

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand & Accent Colors -->
+    <color name="primary">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
+
+    <color name="secondary">#0D9488</color>
+    <color name="accent_warning">#D97706</color>
+    <color name="accent_danger">#DC2626</color>
+    <color name="accent_success">#16A34A</color>
+
+    <!-- Surfaces & Backgrounds -->
+    <color name="bg_page">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_bg_subtle">#F1F5F9</color>
+    <color name="divider_color">#E2E8F0</color>
+
+    <!-- Text Colors -->
+    <color name="text_title">#0F172A</color>
+    <color name="text_body">#334155</color>
+    <color name="text_muted">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+
+    <!-- Section Badge Colors -->
+    <color name="tag_condition_bg">#E0E7FF</color>
+    <color name="tag_condition_text">#3730A3</color>
+    <color name="tag_action_bg">#DCFCE7</color>
+    <color name="tag_action_text">#166534</color>
+    <color name="tag_exit_condition_bg">#FEF3C7</color>
+    <color name="tag_exit_condition_text">#92400E</color>
+    <color name="tag_restore_action_bg">#F1F5F9</color>
+    <color name="tag_restore_action_text">#475569</color>
+</resources>

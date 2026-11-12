@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:focusableInTouchMode="true"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:id="@+id/dialogConditionCategoryOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/dialogConditionCategory"
+                android:text="条件"
+                android:textColor="@color/text_title"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/dialogConditionCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_spinner"
+                android:contentDescription="条件类型"
+                android:minHeight="52dp"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialogTypeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/dialogSpinner"
+            android:text="类型"
+            android:textColor="@color/text_title"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/dialogSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_spinner"
+            android:contentDescription="条件或动作类型"
+            android:minHeight="52dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/dialogSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_muted"
+            android:textSize="13sp" />
+
+        <include layout="@layout/editor_connection_options" />
+        <include layout="@layout/editor_app_options" />
+        <include layout="@layout/editor_timer_options" />
+        <include layout="@layout/editor_time_range_options" />
+        <include layout="@layout/editor_switch_options" />
+        <include layout="@layout/editor_sound_options" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutActionDelay"
+            style="@style/Widget.AutoTaskLite.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="动作执行前延迟"
+            android:visibility="gone"
+            app:helperText="按动作列表顺序执行；0 表示不延迟，最长 7 天"
+            app:suffixText="秒">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialogActionDelay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutInputParam1"
+            style="@style/Widget.AutoTaskLite.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="主要参数">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialogParam1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:maxLines="5"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutInputParam2"
+            style="@style/Widget.AutoTaskLite.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="补充参数（可选）">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialogParam2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:maxLines="4"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/dialogGeofenceSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_item_chip"
+            android:padding="16dp"
+            android:text="@string/geofence_picker_title"
+            android:textColor="@color/text_title"
+            android:textSize="15sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

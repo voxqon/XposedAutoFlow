@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogAppOptions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.AutoTaskLite.TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialogAppSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/dialogAppSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:paddingVertical="8dp"
+        android:text="@string/app_choose_required"
+        android:textColor="@color/text_body"
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialogAppList"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:nestedScrollingEnabled="true" />
+
+    <TextView
+        android:id="@+id/dialogAppStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:paddingVertical="8dp"
+        android:textColor="@color/text_muted"
+        android:textSize="13sp" />
+
+    <com.google.android.material.button.MaterialButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dialogAppRetry"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/geofence_map_retry"
+        android:visibility="gone"
+        app:icon="@android:drawable/ic_popup_sync" />
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Lifecycle automation also targets apps without launcher activities. -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!--
+      App 的网络权限用于围栏地图和用户手动 WebDAV 备份；不申请后台定位权限。
+      规则通过校验 Binder UID 的私有配置 Provider 提供给 system_server。
+      所有规则条件监听与动作执行都发生在 LSPosed 推荐作用域声明的系统进程内。
+      使用传统 Xposed 入口 assets/xposed_init，推荐作用域由 xposedscope 声明；
+      运行时仍由 HookDispatcher 白名单与 RuleEngine 规则匹配限制执行范围。
+    -->
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.AutoTaskLite">
+
+        <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="xposeddescription" android:value="@string/module_description" />
+        <meta-data android:name="xposedminversion" android:value="82" />
+        <meta-data android:name="xposedscope" android:resource="@array/xposed_scope" />
+
+        <activity
+            android:name=".app.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.INFO" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name=".Launcher"
+            android:enabled="true"
+            android:exported="true"
+            android:targetActivity=".app.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".app.ExecutionLogsActivity" android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".app.SettingsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Binder UID checks in every operation restrict access to the app and system_server. -->
+        <provider
+            android:name=".app.RuleConfigProvider"
+            android:authorities="com.github.voxqon.xposed.autoflow.rule-config"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
+        <provider
+            android:name=".app.ExecutionLogProvider"
+            android:authorities="com.github.voxqon.xposed.autoflow.execution-logs"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
+
+        <activity
+            android:name=".app.EditorActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <receiver
+            android:name=".app.ConnectionCatalogReceiver"
+            android:exported="false" />
+        <activity
+            android:name=".app.GeofencePickerActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

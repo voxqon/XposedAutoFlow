@@ -1,0 +1,12 @@
+version: 1
+id: 784db0dc-bef4-4760-83ec-5c7e68a04053
+name: webdav
+slug: webdav
+protocol: http
+description: Local RFC 4918 backup stand-in with authenticated nested DAV collections and rate-limit failures.
+port: 4501
+interceptRequests: true
+scenarios:
+  - name: default
+    path: ./default.js
+    default: true

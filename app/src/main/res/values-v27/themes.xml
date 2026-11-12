@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.AutoTaskLite" parent="Theme.AutoTaskLite.Base">
+        <item name="android:navigationBarColor">@color/card_bg</item>
+        <item name="android:windowLightNavigationBar">@bool/light_system_bars</item>
+    </style>
+</resources>

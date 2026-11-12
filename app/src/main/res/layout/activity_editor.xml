@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:background="@color/card_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"
+            android:padding="12dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/textEditorTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="12dp"
+            android:text="编辑规则"
+            android:textColor="@color/text_title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/save"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="基本信息" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/rule_name_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editRuleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:maxLines="2"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:layout_marginTop="16dp"
+                    android:labelFor="@id/spinnerTriggerMode"
+                    android:text="条件组合方式" />
+
+                <Spinner
+                    android:id="@+id/spinnerTriggerMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_spinner"
+                    android:contentDescription="触发条件组合方式"
+                    android:minHeight="52dp"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:layout_marginTop="16dp"
+                    android:labelFor="@id/spinnerAllowedDays"
+                    android:text="允许触发日期" />
+
+                <Spinner
+                    android:id="@+id/spinnerAllowedDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_spinner"
+                    android:contentDescription="允许规则触发的日期"
+                    android:minHeight="52dp"
+                    android:spinnerMode="dropdown" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupAllowedDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:singleLine="false"
+                    app:singleSelection="false" />
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:layout_marginTop="4dp"
+                    android:text="工作日可含法定节假日调休补班，休息日按法定节假日计算；数据来自 holiday-cn。" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="重复触发冷却时间"
+                    app:helperText="0 关闭，最长 7 天；规则退出后再次触发前等待"
+                    app:suffixText="秒">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCooldownSeconds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="触发条件"
+                    android:textColor="@color/primary" />
+
+                <TextView
+                    android:id="@+id/textConditionModeHint"
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="需要全部满足" />
+
+                <LinearLayout
+                    android:id="@+id/boxConditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddCondition"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/add_condition"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddConditionGroup"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="添加条件组（或）"
+                    app:icon="@drawable/ic_layers"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="执行动作"
+                    android:textColor="@color/secondary" />
+
+                <LinearLayout
+                    android:id="@+id/boxActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddAction"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/add_action"
+                    android:textColor="@color/secondary"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/secondary"
+                    app:strokeColor="@color/secondary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="退出条件"
+                    android:textColor="@color/accent_warning" />
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="任一满足即退出规则并恢复设置" />
+
+                <LinearLayout
+                    android:id="@+id/boxExitConditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddExitCondition"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/add_exit_condition"
+                    android:textColor="@color/accent_warning"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/accent_warning"
+                    app:strokeColor="@color/accent_warning" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddExitConditionGroup"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="添加退出条件组（或）"
+                    android:textColor="@color/accent_warning"
+                    app:icon="@drawable/ic_layers"
+                    app:iconTint="@color/accent_warning"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="退出恢复动作" />
+
+                <LinearLayout
+                    android:id="@+id/boxRestoreActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddRestoreAction"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/add_restore_action"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

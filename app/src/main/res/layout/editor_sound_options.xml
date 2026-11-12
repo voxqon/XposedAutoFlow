@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogSoundOptions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/dialogSoundKind"
+        android:text="声音"
+        android:textColor="@color/text_title"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/dialogSoundKind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_spinner"
+        android:minHeight="52dp"
+        android:spinnerMode="dropdown" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSoundDuration"
+        style="@style/Widget.AutoTaskLite.TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="播放时长（秒，1-30）">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialogSoundDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"
+            android:text="5"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

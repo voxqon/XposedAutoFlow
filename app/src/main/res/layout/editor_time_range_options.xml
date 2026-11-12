@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogTimeRangeOptions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialogTimeRangeStart"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="52dp"
+        app:cornerRadius="8dp"
+        app:icon="@android:drawable/ic_menu_recent_history" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialogTimeRangeEnd"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="52dp"
+        app:cornerRadius="8dp"
+        app:icon="@android:drawable/ic_menu_recent_history" />
+
+    <RadioGroup
+        android:id="@+id/dialogTimeRangeMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/dialogTimeRangeInside"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/dialogTimeRangeInside"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/time_range_inside" />
+
+        <RadioButton
+            android:id="@+id/dialogTimeRangeOutside"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/time_range_outside" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/dialogTimeRangeError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:paddingVertical="8dp"
+        android:text="@string/time_range_equal_error"
+        android:textColor="@color/accent_warning"
+        android:textSize="13sp"
+        android:visibility="gone" />
+</LinearLayout>

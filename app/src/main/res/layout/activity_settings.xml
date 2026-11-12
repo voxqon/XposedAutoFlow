@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/settingsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:background="@color/card_bg"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/settings_title"
+        app:titleTextColor="@color/text_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/settingsScrollContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/settings_content_bottom_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchHideIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/hide_launcher_icon"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="@string/hide_launcher_note" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchFloatingBottomBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minHeight="48dp"
+                    android:text="@string/floating_bottom_bar"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="@string/floating_bottom_bar_note" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchNotifyExecution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minHeight="48dp"
+                    android:text="@string/notif_notify_execution"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/textNotificationStatus"
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="@string/execution_notify_note" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNotificationSettings"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/execution_notify_settings"
+                    android:visibility="gone"
+                    app:icon="@android:drawable/ic_menu_preferences"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLogLimit"
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/log_limit"
+                    app:helperText="@string/log_limit_hint">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editLogLimit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:maxLength="6" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveLogLimit"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="保存日志数量"
+                    app:icon="@android:drawable/ic_menu_save"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionTitle"
+                    android:text="@string/webdav_title" />
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="@string/webdav_scope" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUseJianguoyun"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/webdav_use_jianguoyun"
+                    app:icon="@android:drawable/ic_menu_set_as"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputWebDavUrl"
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/webdav_url">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editWebDavUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textUri|textMultiLine"
+                        android:scrollHorizontally="false"
+                        android:maxLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputWebDavUsername"
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/webdav_username">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editWebDavUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputWebDavPassword"
+                    style="@style/Widget.AutoTaskLite.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/webdav_password"
+                    app:endIconMode="password_toggle">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editWebDavPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:saveEnabled="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveWebDav"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/webdav_save"
+                    app:icon="@android:drawable/ic_menu_save"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTestWebDav"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/webdav_test"
+                    app:icon="@android:drawable/ic_menu_rotate"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackupWebDav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/webdav_backup"
+                    app:icon="@android:drawable/ic_menu_upload"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRestoreWebDav"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/webdav_restore"
+                    app:icon="@android:drawable/ic_menu_revert"
+                    app:iconGravity="textStart"
+                    app:cornerRadius="8dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressWebDav"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/textWebDavStatus"
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:accessibilityLiveRegion="polite"
+                    android:textIsSelectable="true" />
+                <TextView
+                    style="@style/Widget.AutoTaskLite.SectionHint"
+                    android:text="@string/webdav_file" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemTextColor="@color/bottom_nav_item"
+        app:itemIconTint="@color/bottom_nav_item"
+        android:background="@color/card_bg" />
+</LinearLayout>

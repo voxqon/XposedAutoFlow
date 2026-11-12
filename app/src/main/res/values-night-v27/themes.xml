@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.AutoTaskLite" parent="Theme.AutoTaskLite.Base">
+        <item name="colorOnPrimary">#10253E</item>
+        <item name="colorOnSecondary">#00382F</item>
+        <item name="android:navigationBarColor">@color/card_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

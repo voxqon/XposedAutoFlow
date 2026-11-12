@@ -1,0 +1,14 @@
+.gradle*/
+**/build/
+**/build-*/
+local.properties
+.idea/
+*.iml
+.codex-backups/
+OPTIMIZATION.md
+tmp_patch.patch
+*.jks
+*.keystore
+*.p12
+*.pfx
+signature.properties
